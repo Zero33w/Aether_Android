@@ -13,7 +13,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.ParcelUuid;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -554,7 +553,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(ETIQUETA_LOG, " bytes = " + new String(bytes));
             Log.d(ETIQUETA_LOG, " bytes (" + bytes.length + ") = " + Utilidades.bytesToHexString(bytes));
             //Pasamos los datos de major y minor a la funcion para que haga el POST
-            medicionRecibida(String.valueOf(Utilidades.bytesToInt(tib.getMajor())) , String.valueOf(Utilidades.bytesToInt(tib.getMinor())));
+            LogicaDelNegocio.GuardarMedidaEnBD(String.valueOf(Utilidades.bytesToInt(tib.getMajor())) , String.valueOf(Utilidades.bytesToInt(tib.getMinor())),"https://jegeesc.upv.edu.es/proyecto3a/index.php");
 
             textoBluetooth.setText("Nombre: "+Utilidades.bytesToString(tib.getUUID())+"Major: " + Utilidades.bytesToInt(tib.getMajor()) + ", Minor: " + Utilidades.bytesToInt(tib.getMinor()));
             //------------------------------------------------
@@ -587,24 +586,6 @@ public class MainActivity extends AppCompatActivity {
 //------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------
 
-    public void medicionRecibida (String major, String minor) {
-        Log.d("clienterestandroid", "boton_enviar_pulsado");
-
-        // ojo: creo que hay que crear uno nuevo cada vez
-        PeticionarioREST elPeticionario = new PeticionarioREST();
-
-        Date fechaHoy = new Date();
-        elPeticionario.hacerPeticionREST("POST", "https://jegeesc.upv.edu.es/proyecto3a/index.php",
-                //"{\"Valor\": \"8888\", \"TipoMedida\": \"PruebaMovil\", \"Fecha\": \" " + fechaHoy.getTime() + " \" , \"Latitud\": \"1231\" , \"Longitud\": \"1231\"}",
-                "Valor="+major+"&TipoMedida=MedidaMovil&Fecha="+fechaHoy.getTime()+"&Latitud=38.995844400283715&Longitud=-0.16542336747835645",
-                new PeticionarioREST.RespuestaREST () {
-                    @Override
-                    public void callback(int codigo, String cuerpo) {
-                        Log.d ("clienterestandroid" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
-                    }
-                });
-
-    } // pulsado ()
 } // class
 // -------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------
