@@ -177,13 +177,15 @@ public class MainActivity extends AppCompatActivity {
     public static MainActivity getInstancia() {
         return instancia;
     }
-
-
     // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
-// Botones Arrancar y Parar Servicio
-// ---------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------
+    /**
+     * botonArrancarServicioPulsado simplemente arranca el servicio cuando se pulsa un boton. View v->botonArrancarServicioPulsado()
+     *
+     * @param v llamar al onclick.
+     *
+     * No devuelve ningún valor.
+     */
     public void botonArrancarServicioPulsado( View v ) {
         Log.d(ETIQUETA_LOG, " boton arrancar servicio Pulsado");
 
@@ -201,8 +203,13 @@ public class MainActivity extends AppCompatActivity {
 
     } // ()
 
-    // ---------------------------------------------------------------------------------------------
-    // ---------------------------------------------------------------------------------------------
+    /**
+     * botonDetenerServicioPulsado simplemente arranca el servicio cuando se pulsa un boton. View v->botonDetenerServicioPulsado()
+     *
+     * @param v llamar al onclick.
+     *
+     * No devuelve ningún valor.
+     */
     public void botonDetenerServicioPulsado( View v ) {
 
         if ( this.elIntentDelServicio == null ) {
@@ -218,8 +225,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     } // ()
-
-
     // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 // onCreate()
@@ -239,13 +244,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, " MainActivity.constructor : acaba");
 
     }
-
-
-    //------------------------------------------------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------------------------------------------
-    //PERMISOS
-//------------------------------------------------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * solicitarPermiso si el permiso no está concedido lo solicita al iniciar la aplicacion. solicitarPermiso()
+     *
+     *
+     *  No devuelve ningun valor
+     */
     private void solicitarPermisos(){
         //Solicitar permiso bluetooth para detectar beacons
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//version minima Android M
@@ -265,7 +269,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    //Una vez obtenido el resultado de la peticion de los permisos informamos del estado, si se han permitido o no.
+    /**
+     * onRequestPermissionsResult Una vez obtenido el resultado de la peticion de los permisos informamos del estado,
+     * si se han permitido o no. permissions[]:String, requestCode:int,grantResults:int[]->onRequestPermissionsResult()
+     *
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     *
+     *  No devuelve ningun valor
+     */
+    //
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -291,14 +305,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }//OnRequestPermission
-
-
 //------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------
     //METODOS BLUETOOTH
 //------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------
-
+    /**
+     * inicializarBluetooth al iniciar la app se activa el bluetooth, inicializarBlueeTooth()
+     *
+     *  No devuelve ningun valor
+     */
     private void inicializarBlueTooth() {
         Log.d(ETIQUETA_LOG, " inicializarBlueTooth(): obtenemos adaptador BT ");
 
@@ -346,9 +362,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
     } // ()
-
-    // --------------------------------------------------------------
-    // --------------------------------------------------------------
+    /**
+     * buscarEsteDispositivoBTLE busca nuestro dispositivo con el sensor para luego mostrar los datos, dispositivoBuscado:int->buscarEsteDispositivoBTLE()
+     *
+     * @param dispositivoBuscado dispositivo que queremos buscar.
+     *  No devuelve ningun valor
+     */
     public void buscarEsteDispositivoBTLE(final String dispositivoBuscado) {
         Log.d(ETIQUETA_LOG, " buscarEsteDispositivoBTLE(): empieza ");
 
@@ -499,9 +518,11 @@ public class MainActivity extends AppCompatActivity {
         //this.elEscanner.startScan(listaFilter, settings, this.callbackDelEscaneo );
         this.elEscanner.startScan( this.callbackDelEscaneo );
     } // ()
-
-    // --------------------------------------------------------------
-    // --------------------------------------------------------------
+    /**
+     * detenerBusquedaDispositivosBTLE detener la busqueda de los dispositivos, detenerBusquedaDispositivosBTLE()
+     *
+     *  No devuelve ningun valor
+     */
     public void detenerBusquedaDispositivosBTLE() {
 
         if (this.callbackDelEscaneo == null) {
@@ -516,9 +537,13 @@ public class MainActivity extends AppCompatActivity {
         this.callbackDelEscaneo = null;
 
     } // ()
-
-    // --------------------------------------------------------------
-    // --------------------------------------------------------------
+    /**
+     * mostrarInformacionDispositivoBTLE muestra los datos de NUESTRO sensor y además llama a GuardarMedidaEnBD
+     * para hacer un post de los datos, resultado:ScanResult->mostrarInformacionDispositivoBTLE()
+     *
+     * @param resultado los datos que saca del sensor.
+     *  No devuelve ningun valor
+     */
     private void mostrarInformacionDispositivoBTLE(ScanResult resultado) {
 
         BluetoothDevice bluetoothDevice = resultado.getDevice();
@@ -579,13 +604,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     } // ()
-
-//------------------------------------------------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------------------------------------------
-    //METODO Peticion rest
-//------------------------------------------------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------------------------------------------
-
 } // class
 // -------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------

@@ -7,13 +7,13 @@ import java.util.Date;
 public class LogicaDelNegocio {
 
     /**
-     * La descripción de GuardarMedidaEnBD. URL:String->GuardarMedidaEnBD
+     * GuardarMedidaEnBD guarda los datos del sensor en la BBDD. URL:String->GuardarMedidaEnBD()
      *
      * @param major El valor del sensor.
      * @param minor Otro valor del sensor.
      * @param urlDestino El servidor donde vamos a introducir los datos.
      *
-     *  No debuelbe ningun valor, esta función introduce lo recibido en el sensor a la BBDD
+     *  No devuelve ningun valor, esta función introduce lo recibido en el sensor a la BBDD
      */
 
     public static void GuardarMedidaEnBD(String major, String minor,String urlDestino) {
