@@ -7,7 +7,7 @@ import java.util.Date;
 public class LogicaFake {
 
     /**
-     * GuardarMedidaEnBD guarda los datos del sensor en la BBDD. URL:String, major:String, minor:String->GuardarMedidaEnBD()
+     * GuardarMedidaEnBD guarda los datos del sensor en la BBDD. URL:String, major:String, minor:String, uuid:String->GuardarMedidaEnBD()
      *
      * @param major El valor del sensor.
      * @param minor Otro valor del sensor.
@@ -16,7 +16,7 @@ public class LogicaFake {
      *  No devuelve ningun valor, esta función introduce lo recibido en el sensor a la BBDD
      */
 
-    public static void GuardarMedidaEnBD(String major, String minor,String urlDestino) {
+    public static void GuardarMedidaEnBD(String major, String minor,String urlDestino,String uuid) {
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
         // ojo: creo que hay que crear uno nuevo cada vez
@@ -25,7 +25,7 @@ public class LogicaFake {
         Date fechaHoy = new Date();
         elPeticionario.hacerPeticionREST("POST", urlDestino,
                 //"{\"Valor\": \"8888\", \"TipoMedida\": \"PruebaMovil\", \"Fecha\": \" " + fechaHoy.getTime() + " \" , \"Latitud\": \"1231\" , \"Longitud\": \"1231\"}",
-                "Valor="+major+"&TipoMedida=MedidaMovil&Fecha="+fechaHoy.getTime()+"&Latitud=38.995844400283715&Longitud=-0.16542336747835645",
+                "idSensor="+uuid+"&valorMedicion="+major+"&momentoMedicion="+fechaHoy.getTime()+"&latitud=38.995844400283715&longitud=-0.16542336747835645",
                 new PeticionarioREST.RespuestaREST () {
                     @Override
                     public void callback(int codigo, String cuerpo) {

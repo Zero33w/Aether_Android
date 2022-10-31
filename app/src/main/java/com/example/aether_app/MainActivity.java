@@ -400,12 +400,14 @@ public class MainActivity extends AppCompatActivity {
         };
 
         ScanFilter sf = new ScanFilter.Builder().setDeviceName(dispositivoBuscado).build();
-        settings = new ScanSettings.Builder ()
-                .setScanMode (ScanSettings.SCAN_MODE_BALANCED)
-                .setCallbackType (ScanSettings.CALLBACK_TYPE_FIRST_MATCH
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            settings = new ScanSettings.Builder ()
+                    .setScanMode (ScanSettings.SCAN_MODE_BALANCED)
+                    .setCallbackType (ScanSettings.CALLBACK_TYPE_FIRST_MATCH
 
-                )
-                .build ();
+                    )
+                    .build ();
+        }
         listaFilter.add(sf);
         Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado);
         //Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado
@@ -577,7 +579,9 @@ public class MainActivity extends AppCompatActivity {
             Log.d(ETIQUETA_LOG, " bytes = " + new String(bytes));
             Log.d(ETIQUETA_LOG, " bytes (" + bytes.length + ") = " + Utilidades.bytesToHexString(bytes));
             //Pasamos los datos de major y minor a la funcion para que haga el POST
-            LogicaFake.GuardarMedidaEnBD(String.valueOf(Utilidades.bytesToInt(tib.getMajor())) , String.valueOf(Utilidades.bytesToInt(tib.getMinor())),"https://jegeesc.upv.edu.es/proyecto3a/index.php");
+            LogicaFake.GuardarMedidaEnBD(String.valueOf(Utilidades.bytesToInt(tib.getMajor())) ,
+                    String.valueOf(Utilidades.bytesToInt(tib.getMinor())),"https://jegeesc.upv.edu.es/proyecto3a/index.php",
+                    Utilidades.bytesToString(tib.getUUID()));
 
             textoBluetooth.setText("Nombre: "+Utilidades.bytesToString(tib.getUUID())+"Major: " + Utilidades.bytesToInt(tib.getMajor()) + ", Minor: " + Utilidades.bytesToInt(tib.getMinor()));
             //------------------------------------------------
