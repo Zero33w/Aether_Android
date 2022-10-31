@@ -25,7 +25,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -578,7 +577,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(ETIQUETA_LOG, " bytes = " + new String(bytes));
             Log.d(ETIQUETA_LOG, " bytes (" + bytes.length + ") = " + Utilidades.bytesToHexString(bytes));
             //Pasamos los datos de major y minor a la funcion para que haga el POST
-            LogicaDelNegocio.GuardarMedidaEnBD(String.valueOf(Utilidades.bytesToInt(tib.getMajor())) , String.valueOf(Utilidades.bytesToInt(tib.getMinor())),"https://jegeesc.upv.edu.es/proyecto3a/index.php");
+            LogicaFake.GuardarMedidaEnBD(String.valueOf(Utilidades.bytesToInt(tib.getMajor())) , String.valueOf(Utilidades.bytesToInt(tib.getMinor())),"https://jegeesc.upv.edu.es/proyecto3a/index.php");
 
             textoBluetooth.setText("Nombre: "+Utilidades.bytesToString(tib.getUUID())+"Major: " + Utilidades.bytesToInt(tib.getMajor()) + ", Minor: " + Utilidades.bytesToInt(tib.getMinor()));
             //------------------------------------------------

@@ -4,10 +4,10 @@ import android.util.Log;
 
 import java.util.Date;
 
-public class LogicaDelNegocio {
+public class LogicaFake {
 
     /**
-     * GuardarMedidaEnBD guarda los datos del sensor en la BBDD. URL:String->GuardarMedidaEnBD()
+     * GuardarMedidaEnBD guarda los datos del sensor en la BBDD. URL:String, major:String, minor:String->GuardarMedidaEnBD()
      *
      * @param major El valor del sensor.
      * @param minor Otro valor del sensor.
