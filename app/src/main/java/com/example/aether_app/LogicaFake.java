@@ -7,7 +7,8 @@ import java.util.Date;
 public class LogicaFake {
 
     /**
-     * GuardarMedidaEnBD guarda los datos del sensor en la BBDD. URL:String, major:String, minor:String, uuid:String->GuardarMedidaEnBD()
+     * GuardarMedidaEnBD guarda los datos del sensor en la BBDD.
+     * URL:String, major:String, minor:String, uuid:String->GuardarMedidaEnBD()
      *
      * @param major El valor del sensor.
      * @param minor Otro valor del sensor.
