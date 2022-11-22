@@ -47,7 +47,7 @@ public class RegistrarActivity extends AppCompatActivity {
         String password = this.contrasenya.getText().toString();
         if (validateData(email, password, this.confirmContra.getText().toString())) {
             LogicaFake.registrarUsuario("https://jmarzoz.upv.edu.es/src/ServidorLogica/registroUsuariosAPP.php",
-                    correo.getText().toString(),contrasenya.getText().toString(),confirmContra.getText().toString());
+                    usuario.getText().toString(),correo.getText().toString(),confirmContra.getText().toString());
             Toast.makeText(getApplicationContext(), "REGISTRADO CON ÉXITO", Toast.LENGTH_SHORT).show();
         }
         else {

@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.aether_app.ui.home.HomeFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 if (!response.isEmpty()){
                     guardarReferencias();
-                    Intent intent=new Intent(getApplicationContext(),UsuarioActivity.class);
+                    Intent intent=new Intent(getApplicationContext(), MenuActivity.class);
                     startActivity(intent);
                     finish();
                 }else{

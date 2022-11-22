@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/perfil_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:background="@color/blanco_01"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/cabecera_perfil_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/perfil_titulo"
+                    android:layout_width="347dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/montserrat"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="MI PERFIL"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/azul_01"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contenido_perfil_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bck_containers"
+            android:elevation="5dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/dispositivo_no_vinculado_imagen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="32dp"
+                                android:background="@drawable/ic_avatar01"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageButton
+                                android:id="@+id/editar_avatar_boton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bck_containers"
+                                android:backgroundTint="@color/azul_03"
+                                android:padding="10dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/dispositivo_no_vinculado_imagen"
+                                app:layout_constraintEnd_toEndOf="@+id/dispositivo_no_vinculado_imagen"
+                                app:layout_constraintHorizontal_bias="0.95"
+                                app:layout_constraintStart_toStartOf="@+id/dispositivo_no_vinculado_imagen"
+                                app:layout_constraintTop_toTopOf="@+id/dispositivo_no_vinculado_imagen"
+                                app:layout_constraintVertical_bias="0.050000012"
+                                app:srcCompat="@drawable/ic_editar" />
+
+                            <TextView
+                                android:id="@+id/nombre_usuario_texto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginEnd="6dp"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="-"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/azul_01"
+                                android:textSize="25dp"
+                                app:layout_constraintEnd_toEndOf="@+id/dispositivo_no_vinculado_imagen"
+                                app:layout_constraintStart_toStartOf="@+id/dispositivo_no_vinculado_imagen"
+                                app:layout_constraintTop_toBottomOf="@+id/dispositivo_no_vinculado_imagen" />
+
+                            <ImageButton
+                                android:id="@+id/editar_nombre_boton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bck_containers"
+                                android:backgroundTint="@color/azul_03"
+                                android:padding="10dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/nombre_usuario_texto"
+                                app:layout_constraintStart_toEndOf="@+id/nombre_usuario_texto"
+                                app:layout_constraintTop_toTopOf="@+id/nombre_usuario_texto"
+                                app:srcCompat="@drawable/ic_editar" />
+
+                            <TextView
+                                android:id="@+id/correo_perfil_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="Correo:"
+                                android:textColor="@color/azul_01"
+                                android:textSize="18dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.1"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/nombre_usuario_texto" />
+
+                            <ImageView
+                                android:id="@+id/correo_perfil_icono"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintStart_toStartOf="@+id/correo_perfil_label"
+                                app:layout_constraintTop_toBottomOf="@+id/correo_perfil_label"
+                                app:srcCompat="@drawable/ic_correo_perfil" />
+
+                            <TextView
+                                android:id="@+id/correo_usuario_texto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat"
+                                android:text="-"
+                                android:textColor="@color/azul_01"
+                                android:textSize="16dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/correo_perfil_icono"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/correo_perfil_icono"
+                                app:layout_constraintTop_toBottomOf="@+id/correo_perfil_label" />
+
+                            <TextView
+                                android:id="@+id/fecha_registro_perfil_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="Colaborando desde:"
+                                android:textColor="@color/azul_01"
+                                android:textSize="18dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toStartOf="@+id/correo_perfil_label"
+                                app:layout_constraintTop_toBottomOf="@+id/correo_perfil_icono" />
+
+                            <ImageView
+                                android:id="@+id/fecha_registro_perfil_icono"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintStart_toStartOf="@+id/fecha_registro_perfil_label"
+                                app:layout_constraintTop_toBottomOf="@+id/fecha_registro_perfil_label"
+                                app:srcCompat="@drawable/ic_fecha" />
+
+                            <TextView
+                                android:id="@+id/fecha_registro_usuario_texto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat"
+                                android:text="-"
+                                android:textColor="@color/azul_01"
+                                android:textSize="16dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/fecha_registro_perfil_icono"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/fecha_registro_perfil_icono"
+                                app:layout_constraintTop_toBottomOf="@+id/fecha_registro_perfil_label" />
+
+                            <TextView
+                                android:id="@+id/aire_perfil_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="Calidad de aire que respira:"
+                                android:textColor="@color/azul_01"
+                                android:textSize="18dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toStartOf="@+id/fecha_registro_perfil_label"
+                                app:layout_constraintTop_toBottomOf="@+id/fecha_registro_perfil_icono" />
+
+                            <ImageView
+                                android:id="@+id/aire_perfil_icono"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintStart_toStartOf="@+id/aire_perfil_label"
+                                app:layout_constraintTop_toBottomOf="@+id/aire_perfil_label"
+                                app:srcCompat="@drawable/ic_calidad_aire" />
+
+                            <TextView
+                                android:id="@+id/dispositivo_no_vinculado_texto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat"
+                                android:text="-"
+                                android:textColor="@color/azul_01"
+                                android:textSize="16dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/aire_perfil_icono"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/aire_perfil_icono"
+                                app:layout_constraintTop_toBottomOf="@+id/aire_perfil_label" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

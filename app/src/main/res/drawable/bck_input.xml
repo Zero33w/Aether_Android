@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:state_focused="true" android:left="-30dp" android:right="-30dp" android:top="-30dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/transparente" />
+            <stroke android:color="@color/azul_01" android:width="1.5dp" />
+        </shape>
+    </item>
+    <item android:state_enabled="true" android:left="-30dp" android:right="-30dp" android:top="-30dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/transparente" />
+            <stroke android:color="@color/azul_01" android:width="1.5dp"/>
+        </shape>
+    </item>
+
+</layer-list>

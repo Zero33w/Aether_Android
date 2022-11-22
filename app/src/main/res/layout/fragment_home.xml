@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/edtado_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:background="@color/blanco_01"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/cabecera_estado_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/estado_titulo"
+                    android:layout_width="347dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/montserrat"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="MI ESTADO"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/azul_01"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contenido_estado_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="5dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ProgressBar
+                                android:id="@+id/progressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="225dp"
+                                android:layout_height="225dp"
+                                android:layout_marginTop="8dp"
+                                android:indeterminateOnly="false"
+                                android:max="100"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/bck_calidad_aire_barra_porcentaje"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/calidad_aire_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="Calidad del aire:"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/azul_01"
+                                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                                app:layout_constraintEnd_toEndOf="@+id/progressBar"
+                                app:layout_constraintHorizontal_bias="0.24"
+                                app:layout_constraintStart_toStartOf="@+id/progressBar"
+                                app:layout_constraintTop_toTopOf="@+id/progressBar"
+                                app:layout_constraintVertical_bias="0.26999998" />
+
+                            <TextView
+                                android:id="@+id/calidad_aire_valor_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_light"
+                                android:text="-"
+                                android:textColor="@color/azul_01"
+                                android:textSize="85dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                                app:layout_constraintEnd_toEndOf="@+id/progressBar"
+                                app:layout_constraintStart_toStartOf="@+id/progressBar"
+                                app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+                            <TextView
+                                android:id="@+id/calidad_aire_valor_text3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_light"
+                                android:text="%"
+                                android:textColor="@color/azul_01"
+                                android:textSize="40dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                                app:layout_constraintEnd_toEndOf="@+id/progressBar"
+                                app:layout_constraintHorizontal_bias="0.75"
+                                app:layout_constraintStart_toStartOf="@+id/progressBar"
+                                app:layout_constraintTop_toTopOf="@+id/progressBar"
+                                app:layout_constraintVertical_bias="0.85" />
+
+                            <TextView
+                                android:id="@+id/tipo_aire_texto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/bck_containers"
+                                android:backgroundTint="@color/azul_03"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingStart="20dp"
+                                android:paddingTop="5dp"
+                                android:paddingEnd="20dp"
+                                android:paddingBottom="5dp"
+                                android:text="Moderada"
+                                android:textAlignment="center"
+                                android:textColor="@color/blanco_01"
+                                app:layout_constraintEnd_toEndOf="@+id/progressBar"
+                                app:layout_constraintStart_toStartOf="@+id/progressBar"
+                                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/bck_containers"
+                                android:elevation="5dp">
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="100dp"
+                                    android:layout_marginBottom="100dp"
+                                    android:text="grÃ¡fica"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

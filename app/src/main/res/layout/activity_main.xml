@@ -4,57 +4,155 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/blanco_01">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+    <ImageView
+        android:id="@+id/logo_login_imagen"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_aether_technologies" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:backgroundTint="@color/azul_01"
+        android:id="@+id/correo_login_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_login_imagen"
+        app:hintEnabled="false"
+        app:startIconDrawable="@drawable/ic_correo_input"
+        app:startIconTint="@color/azul_01">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usuario"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Usuario" />
+            android:layout_height="match_parent"
+            android:background="@drawable/bck_input"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="Correo"
+            android:textColorHint="@color/azul_01_hint"
+            android:inputType="textEmailAddress"
+            android:paddingStart="5dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:shadowColor="@color/azul_01"
+            android:textColor="@color/azul_01"
+            android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        android:layout_width="409dp"
+        android:backgroundTint="@color/azul_01"
+        android:id="@+id/contrasenya_login_input"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/correo_login_input"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/azul_01"
+        app:passwordToggleDrawable="@drawable/mostrar_contrasenya_selector"
+        app:hintEnabled="false"
+        app:startIconDrawable="@drawable/ic_contrasenya_input"
+        app:startIconTint="@color/azul_01">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/contrasenya"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contraseña" />
+            android:layout_height="match_parent"
+            android:background="@drawable/bck_input"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="Contraseña"
+            android:textColorHint="@color/azul_01_hint"
+            android:inputType="textPassword"
+            android:paddingStart="5dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:shadowColor="@color/azul_01"
+            android:textColor="@color/azul_01"
+            android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/contrasenya_olvidada_boton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparente"
+        android:fontFamily="@font/montserrat"
+        android:padding="2dp"
+        android:text="Has olvidado tu contraseña?"
+        android:textAllCaps="false"
+        android:textColor="@color/azul_03"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/contrasenya_login_input"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/contrasenya_login_input"
+        app:layout_constraintTop_toBottomOf="@+id/contrasenya_login_input" />
+
+    <Button
+        android:id="@+id/registro_boton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparente"
+        android:fontFamily="@font/montserrat"
+        android:onClick="botonMandarRegistro"
+        android:padding="2dp"
+        android:text="Regístrate"
+        android:textAllCaps="false"
+        android:textColor="@color/azul_02"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/registro_texto"
+        app:layout_constraintStart_toEndOf="@+id/registro_texto"
+        app:layout_constraintTop_toTopOf="@+id/registro_texto" />
 
     <Button
         android:id="@+id/botonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@color/azul_03"
+        android:fontFamily="@font/montserrat"
+        android:paddingStart="35dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="35dp"
+        android:paddingBottom="18dp"
+        android:text="Iniciar Sesión"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        app:cornerRadius="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/contrasenya_olvidada_boton"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/registro_texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:onClick="botonMandarRegistro"
-        android:text="Registrar"
+        android:fontFamily="@font/montserrat"
+        android:text="No tienes una cuenta?"
+        android:textColor="@color/azul_01"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonLogin" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
