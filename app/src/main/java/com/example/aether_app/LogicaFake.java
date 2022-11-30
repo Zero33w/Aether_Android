@@ -13,6 +13,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.aether_app.ui.gallery.GalleryFragment;
+import com.example.aether_app.ui.home.HomeFragment;
+import com.google.gson.Gson;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -76,4 +79,122 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
         }
+    public static void obtenerPorcentaje(String URL, String idSensor){
+        Log.d("clienterestandroid", "boton_enviar_pulsado");
+        // ojo: creo que hay que crear uno nuevo cada vez
+        PeticionarioREST elPeticionario = new PeticionarioREST();
+
+        elPeticionario.hacerPeticionREST("GET", URL+"?idSensor="+idSensor,
+                null,
+                new PeticionarioREST.RespuestaREST () {
+                    @Override
+                    public void callback(int codigo, String cuerpo) {
+                        Log.d ("prueba-get-porcentaje" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
+                        try{
+                            HomeFragment.getInstance().binding.calidadAireValorText.setText(cuerpo);
+                            HomeFragment.getInstance().binding.progressBar.setProgress(Math.round(Float.parseFloat(cuerpo)));
+                        }catch (Exception e){
+                            Log.d("prueba-get-porcentaje", "Error al actualizar el porcentaje");
+                            HomeFragment.getInstance().binding.calidadAireValorText.setText("Nada");
+                            HomeFragment.getInstance().binding.progressBar.setProgress(0);
+                        }
+
+
+                    }
+                });
     }
+
+    public static void editarNombre(String URL, String nombreNuevo, String contrasenya){
+        Log.d("clienterestandroid", "boton_enviar_pulsado");
+
+        // ojo: creo que hay que crear uno nuevo cada vez
+        PeticionarioREST elPeticionario = new PeticionarioREST();
+
+        Date fechaHoy = new Date();
+        elPeticionario.hacerPeticionREST("POST", URL,
+                //"{\"Valor\": \"8888\", \"TipoMedida\": \"PruebaMovil\", \"Fecha\": \" " + fechaHoy.getTime() + " \" , \"Latitud\": \"1231\" , \"Longitud\": \"1231\"}",
+                "nombre="+nombreNuevo+"&correo="+contrasenya,
+                new PeticionarioREST.RespuestaREST () {
+                    @Override
+                    public void callback(int codigo, String cuerpo) {
+                        Log.d ("clienterestandroid" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
+                    }
+                });
+    }
+
+    public static void cambiarContrasenya(String URL, String correo, String nuevaContrasenya, String contrasenya){
+        Log.d("clienterestandroid", "boton_enviar_pulsado");
+
+        // ojo: creo que hay que crear uno nuevo cada vez
+        PeticionarioREST elPeticionario = new PeticionarioREST();
+
+        elPeticionario.hacerPeticionREST("POST", URL,
+                //"{\"Valor\": \"8888\", \"TipoMedida\": \"PruebaMovil\", \"Fecha\": \" " + fechaHoy.getTime() + " \" , \"Latitud\": \"1231\" , \"Longitud\": \"1231\"}",
+                "correo="+correo+"&contrasenya="+contrasenya+"&nuevaContrasenya="+nuevaContrasenya,
+                new PeticionarioREST.RespuestaREST () {
+                    @Override
+                    public void callback(int codigo, String cuerpo) {
+                        Log.d ("clienterestandroid" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
+                    }
+                });
+    }
+
+    public static void cambiarAvatar(String URL, String Avatar){
+        Log.d("clienterestandroid", "boton_enviar_pulsado");
+
+        // ojo: creo que hay que crear uno nuevo cada vez
+        PeticionarioREST elPeticionario = new PeticionarioREST();
+
+        elPeticionario.hacerPeticionREST("POST", URL,
+                //"{\"Valor\": \"8888\", \"TipoMedida\": \"PruebaMovil\", \"Fecha\": \" " + fechaHoy.getTime() + " \" , \"Latitud\": \"1231\" , \"Longitud\": \"1231\"}",
+                "idAvatar="+Avatar,
+                new PeticionarioREST.RespuestaREST () {
+                    @Override
+                    public void callback(int codigo, String cuerpo) {
+                        Log.d ("clienterestandroid" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
+                    }
+                });
+    }
+
+    public static void obtenerDatosUsuario(String URL, String correo){
+        Log.d("clienterestandroid", "boton_enviar_pulsado");
+        // ojo: creo que hay que crear uno nuevo cada vez
+        PeticionarioREST elPeticionario = new PeticionarioREST();
+
+        elPeticionario.hacerPeticionREST("GET", URL+"?correo="+correo,
+                null,
+                new PeticionarioREST.RespuestaREST () {
+                    @Override
+                    public void callback(int codigo, String cuerpo) {
+                        Log.d ("get-datos-usuario" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
+
+                        //Conversión JSON a Objeto usuario
+                        Usuario usuario = new Usuario();
+                        Gson gson = new Gson();
+                        usuario = gson.fromJson(cuerpo,Usuario.class);
+
+                        //Asignar en el layout el valor de los texto
+                        GalleryFragment.getInstance().binding.nombreUsuarioTexto.setText(usuario.getNombre());
+                        GalleryFragment.getInstance().binding.correoUsuarioTexto.setText(usuario.getCorreo());
+                    }
+                });
+    }
+
+    //hacer una peticion post que recibe una url un correo y una idSensor
+    public static void enviarSensor(String URL, String correo, String idSensor){
+        Log.d("clienterestandroid", "boton_enviar_pulsado");
+
+        // ojo: creo que hay que crear uno nuevo cada vez
+        PeticionarioREST elPeticionario = new PeticionarioREST();
+
+        elPeticionario.hacerPeticionREST("POST", URL,
+                //"{\"Valor\": \"8888\", \"TipoMedida\": \"PruebaMovil\", \"Fecha\": \" " + fechaHoy.getTime() + " \" , \"Latitud\": \"1231\" , \"Longitud\": \"1231\"}",
+                "correo="+correo+"&idSensor="+idSensor,
+                new PeticionarioREST.RespuestaREST () {
+                    @Override
+                    public void callback(int codigo, String cuerpo) {
+                        Log.d ("clienterestandroid" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
+                    }
+                });
+    }
+}

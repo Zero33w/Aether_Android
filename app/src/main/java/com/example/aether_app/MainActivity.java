@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +30,7 @@ import java.util.Map;
 // -------------------------------------------------------------------------------------------------
 public class MainActivity extends AppCompatActivity {
     EditText usuario, contrasenya;
-    Button botonLogin;
+    Button botonLogin,botonCambiarContra;
     String usuarioAux, contrasenyaAux;
 
 
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         usuario = findViewById(R.id.usuario);
         contrasenya = findViewById(R.id.contrasenya);
         botonLogin = findViewById(R.id.botonLogin);
-
+        botonCambiarContra = findViewById(R.id.contrasenya_olvidada_boton);
         recuperarPreferencias();
         botonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +126,11 @@ public class MainActivity extends AppCompatActivity {
      */
     public void botonMandarRegistro(View v) {
         Intent intent=new Intent(getApplicationContext(),RegistrarActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void botonMandarCambio(View v) {
+        Intent intent=new Intent(getApplicationContext(),OlvidarContraActivity.class);
         startActivity(intent);
         finish();
     }

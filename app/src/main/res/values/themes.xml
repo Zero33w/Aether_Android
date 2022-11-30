@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/azul_01</item>
         <!-- Font family. -->
         <item name="android:textViewStyle">@style/fontFamilyPredeterminada</item>
+        <item name="android:actionMenuTextColor">@color/blanco_01</item>
     </style>
     <!-- Font Family style -->
     <style name="fontFamilyPredeterminada" parent="android:Widget.TextView">
@@ -27,4 +28,5 @@
     <style name="Theme.Aether_app.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Aether_app.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

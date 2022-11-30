@@ -55,4 +55,11 @@
         android:layout_height="wrap_content"
         android:text="TextView" />
 
+    <Button
+        android:id="@+id/botonCosas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="botonIrId"
+        android:text="Introducir id" />
+
 </android.widget.LinearLayout>

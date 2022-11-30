@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cambiarContraActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/correo_registro_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/azul_01"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_correo_input"
+        app:startIconTint="@color/azul_01">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/correo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bck_input"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="Correo"
+            android:inputType="textEmailAddress"
+            android:paddingStart="5dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:shadowColor="@color/azul_01"
+            android:textColor="@color/azul_01"
+            android:textColorHint="@color/azul_01_hint"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirmar_contrasenya_registro_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/azul_01"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contrasenya_registro_input"
+        app:startIconDrawable="@drawable/ic_contrasenya_input"
+        app:startIconTint="@color/azul_01">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/idSensor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bck_input"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="Repite la contraseña"
+            android:inputType="textPassword"
+            android:paddingStart="5dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:shadowColor="@color/azul_01"
+            android:textColor="@color/azul_01"
+            android:textColorHint="@color/azul_01_hint"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/botonCambiarContra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/azul_03"
+        android:fontFamily="@font/montserrat"
+        android:onClick="botonCambiarContra"
+        android:paddingStart="35dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="35dp"
+        android:paddingBottom="18dp"
+        android:text="Cambiar Contraseña"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        app:cornerRadius="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmar_contrasenya_registro_input"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contrasenya_registro_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/azul_01"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correo_registro_input"
+        app:startIconDrawable="@drawable/ic_contrasenya_input"
+        app:startIconTint="@color/azul_01">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/introducirCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bck_input"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:paddingStart="5dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:shadowColor="@color/azul_01"
+            android:textColor="@color/azul_01"
+            android:textColorHint="@color/azul_01_hint"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

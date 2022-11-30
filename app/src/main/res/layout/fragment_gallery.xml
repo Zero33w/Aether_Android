@@ -31,7 +31,6 @@
                     android:id="@+id/perfil_titulo"
                     android:layout_width="347dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/montserrat"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
@@ -76,10 +75,51 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
-                            <ImageView
-                                android:id="@+id/dispositivo_no_vinculado_imagen"
+                            <Button
+                                android:id="@+id/cambiar_conrasenya_boton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                android:backgroundTint="@color/azul_03"
+                                android:fontFamily="@font/montserrat"
+                                android:onClick="modificarContrasenya"
+                                android:paddingStart="35dp"
+                                android:paddingTop="18dp"
+                                android:paddingEnd="35dp"
+                                android:paddingBottom="18dp"
+                                android:text="Cambiar contraseña"
+                                android:textAllCaps="false"
+                                android:textSize="16dp"
+                                app:cornerRadius="40dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/fecha_registro_perfil_icono" />
+
+                            <ImageButton
+                                android:id="@+id/cerrar_sesion_boton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/bck_containers"
+                                android:backgroundTint="@color/azul_02"
+                                android:onClick="botonLogout"
+                                android:paddingStart="35dp"
+                                android:paddingTop="18dp"
+                                android:paddingEnd="35dp"
+                                android:paddingBottom="18dp"
+                                android:src="@drawable/ic_cerrar_sesion"
+                                android:textAllCaps="false"
+                                app:cornerRadius="40dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+                            <ImageView
+                                android:id="@+id/dispositivo_no_vinculado_imagen"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
                                 android:layout_marginTop="32dp"
                                 android:background="@drawable/ic_avatar01"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,6 +167,7 @@
                                 android:layout_marginStart="8dp"
                                 android:background="@drawable/bck_containers"
                                 android:backgroundTint="@color/azul_03"
+                                android:onClick="modificarNombre"
                                 android:padding="10dp"
                                 app:layout_constraintBottom_toBottomOf="@+id/nombre_usuario_texto"
                                 app:layout_constraintStart_toEndOf="@+id/nombre_usuario_texto"
@@ -212,44 +253,18 @@
                                 app:layout_constraintStart_toEndOf="@+id/fecha_registro_perfil_icono"
                                 app:layout_constraintTop_toBottomOf="@+id/fecha_registro_perfil_label" />
 
-                            <TextView
-                                android:id="@+id/aire_perfil_label"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="24dp"
-                                android:fontFamily="@font/montserrat_medium"
-                                android:text="Calidad de aire que respira:"
-                                android:textColor="@color/azul_01"
-                                android:textSize="18dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toStartOf="@+id/fecha_registro_perfil_label"
-                                app:layout_constraintTop_toBottomOf="@+id/fecha_registro_perfil_icono" />
-
                             <ImageView
-                                android:id="@+id/aire_perfil_icono"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                app:layout_constraintStart_toStartOf="@+id/aire_perfil_label"
-                                app:layout_constraintTop_toBottomOf="@+id/aire_perfil_label"
-                                app:srcCompat="@drawable/ic_calidad_aire" />
-
-                            <TextView
-                                android:id="@+id/dispositivo_no_vinculado_texto"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/montserrat"
-                                android:text="-"
-                                android:textColor="@color/azul_01"
-                                android:textSize="16dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/aire_perfil_icono"
+                                android:id="@+id/imageView2"
+                                android:layout_width="0dp"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="32dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginEnd="32dp"
+                                android:backgroundTint="@color/azul_03"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toEndOf="@+id/aire_perfil_icono"
-                                app:layout_constraintTop_toBottomOf="@+id/aire_perfil_label" />
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/cambiar_conrasenya_boton"
+                                app:srcCompat="@drawable/bck_input" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>

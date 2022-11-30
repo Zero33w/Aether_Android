@@ -61,7 +61,7 @@
         app:startIconTint="@color/azul_01">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/contra"
+            android:id="@+id/introducirCorreo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bck_input"
@@ -94,7 +94,7 @@
         app:startIconTint="@color/azul_01">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/confirmContra"
+            android:id="@+id/idSensor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bck_input"

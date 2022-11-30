@@ -239,6 +239,7 @@ public class UsuarioActivity extends AppCompatActivity
             return;
         }
 
+
         Log.d(ETIQUETA_LOG, " MainActivity.constructor : voy a arrancar el servicio");
 
         this.elIntentDelServicio = new Intent(this, ServicioEscucharBeacons.class);
@@ -247,6 +248,14 @@ public class UsuarioActivity extends AppCompatActivity
         startService(this.elIntentDelServicio);
 
     } // ()
+    public void botonLogout(){
+        SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+        preferences.edit().clear().commit();
+
+        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
     public void botonArrancarServicioPulsado(String uuid) {
         Log.d(ETIQUETA_LOG, " boton arrancar servicio Pulsado");
 
@@ -518,108 +527,7 @@ public class UsuarioActivity extends AppCompatActivity
         }
         listaFilter.add(sf);
         Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado);
-        //Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado
-        //      + " -> " + Utilidades.stringToUUID( dispositivoBuscado ) );
 
-        /*List<ScanFilter> listaFilter = new List<ScanFilter>() {
-            @Override
-            public int size() {
-                return 0;
-            }
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-            @Override
-            public boolean contains(@Nullable Object o) {
-                return false;
-            }
-            @NonNull
-            @Override
-            public Iterator<ScanFilter> iterator() {
-                return null;
-            }
-            @NonNull
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-            @NonNull
-            @Override
-            public <T> T[] toArray(@NonNull T[] ts) {
-                return null;
-            }
-            @Override
-            public boolean add(ScanFilter scanFilter) {
-                return false;
-            }
-            @Override
-            public boolean remove(@Nullable Object o) {
-                return false;
-            }
-            @Override
-            public boolean containsAll(@NonNull Collection<?> collection) {
-                return false;
-            }
-            @Override
-            public boolean addAll(@NonNull Collection<? extends ScanFilter> collection) {
-                return false;
-            }
-            @Override
-            public boolean addAll(int i, @NonNull Collection<? extends ScanFilter> collection) {
-                return false;
-            }
-            @Override
-            public boolean removeAll(@NonNull Collection<?> collection) {
-                return false;
-            }
-            @Override
-            public boolean retainAll(@NonNull Collection<?> collection) {
-                return false;
-            }
-            @Override
-            public void clear() {
-            }
-            @Override
-            public ScanFilter get(int i) {
-                return null;
-            }
-            @Override
-            public ScanFilter set(int i, ScanFilter scanFilter) {
-                return null;
-            }
-            @Override
-            public void add(int i, ScanFilter scanFilter) {
-            }
-            @Override
-            public ScanFilter remove(int i) {
-                return null;
-            }
-            @Override
-            public int indexOf(@Nullable Object o) {
-                return 0;
-            }
-            @Override
-            public int lastIndexOf(@Nullable Object o) {
-                return 0;
-            }
-            @NonNull
-            @Override
-            public ListIterator<ScanFilter> listIterator() {
-                return null;
-            }
-            @NonNull
-            @Override
-            public ListIterator<ScanFilter> listIterator(int i) {
-                return null;
-            }
-            @NonNull
-            @Override
-            public List<ScanFilter> subList(int i, int i1) {
-                return null;
-            }
-        };
-        listaFilter.add(sf);*/
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
             solicitarPermisos();
 
@@ -674,13 +582,6 @@ public class UsuarioActivity extends AppCompatActivity
             }
             Log.d(ETIQUETA_LOG, " nombre = " + bluetoothDevice.getName());
             Log.d(ETIQUETA_LOG, " toString = " + bluetoothDevice.toString());
-
-
-        /*ParcelUuid[] puuids = bluetoothDevice.getUuids();
-        if ( puuids.length >= 1 ) {
-            //Log.d(ETIQUETA_LOG, " uuid = " + puuids[0].getUuid());
-           // Log.d(ETIQUETA_LOG, " uuid = " + puuids[0].toString());
-        }*/
 
             Log.d(ETIQUETA_LOG, " dirección = " + bluetoothDevice.getAddress());
             Log.d(ETIQUETA_LOG, " rssi = " + rssi);
@@ -745,6 +646,9 @@ public class UsuarioActivity extends AppCompatActivity
 
     }
 
-
+    public void botonIrId(View view) {
+        Intent intent = new Intent(this, VincularActivity.class);
+        startActivity(intent);
+    }
 
 }

@@ -6,17 +6,293 @@
     android:layout_height="match_parent"
     tools:context=".ui.slideshow.SlideshowFragment">
 
-    <TextView
-        android:id="@+id/text_slideshow"
+    <LinearLayout
+        android:id="@+id/dispositivo_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:background="@color/blanco_01"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/cabecera_dispositivo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/perfil_titulo"
+                    android:layout_width="347dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="MI DISPOSITIVO"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/azul_01"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contenido_dispositivo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bck_containers"
+            android:elevation="5dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Group
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:constraint_referenced_ids="conectado_icono,nombre_sensor_texto,tiempo_emitiendo_icono,ultima_medida_label,ultima_medida_icono,ultima_calidad_aire_texto,ultima_calidad_aire_label,tiempo_emitiendo_texto,ultima_calidad_aire_icono,ultima_medida_texto,tiempo_emitiendo_label,dispositivo_vinculado_imagen,bateria_imagen" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    app:constraint_referenced_ids="dispositivo_no_vinculado_imagen,dispositivo_no_vinculado_texto" />
+
+                <Button
+                    android:id="@+id/vincular_dispositivo_boton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/azul_03"
+                    android:fontFamily="@font/montserrat"
+                    android:paddingStart="50dp"
+                    android:paddingTop="18dp"
+                    android:paddingEnd="50dp"
+                    android:paddingBottom="18dp"
+                    android:text="Vincular"
+                    android:textAllCaps="false"
+                    android:textSize="16dp"
+                    app:cornerRadius="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tiempo_emitiendo_icono"
+                    android:onClick="irALayautDeMierda"/>
+
+                <ImageView
+                    android:id="@+id/dispositivo_no_vinculado_imagen"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25"
+                    app:srcCompat="@drawable/ic_dispositivo" />
+
+                <TextView
+                    android:id="@+id/dispositivo_no_vinculado_texto"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Parece que no tienes ningún dispositivo vinculado."
+                    android:textAlignment="center"
+                    android:textColor="@color/azul_01"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="@+id/dispositivo_no_vinculado_imagen"
+                    app:layout_constraintStart_toStartOf="@+id/dispositivo_no_vinculado_imagen"
+                    app:layout_constraintTop_toBottomOf="@+id/dispositivo_no_vinculado_imagen" />
+
+                <ImageView
+                    android:id="@+id/dispositivo_vinculado_imagen"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_dispositivo" />
+
+                <ImageView
+                    android:id="@+id/bateria_imagen"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_bateria_full" />
+
+                <ImageView
+                    android:id="@+id/conectado_icono"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bck_containers"
+                    android:backgroundTint="@color/verde_01"
+                    app:layout_constraintBottom_toBottomOf="@+id/dispositivo_vinculado_imagen"
+                    app:layout_constraintEnd_toEndOf="@+id/dispositivo_vinculado_imagen"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/dispositivo_vinculado_imagen"
+                    app:layout_constraintTop_toTopOf="@+id/dispositivo_vinculado_imagen"
+                    app:layout_constraintVertical_bias="0.95" />
+
+                <TextView
+                    android:id="@+id/nombre_sensor_texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/azul_01"
+                    android:textSize="18dp"
+                    app:layout_constraintEnd_toEndOf="@+id/dispositivo_vinculado_imagen"
+                    app:layout_constraintStart_toStartOf="@+id/dispositivo_vinculado_imagen"
+                    app:layout_constraintTop_toBottomOf="@+id/dispositivo_vinculado_imagen" />
+
+                <TextView
+                    android:id="@+id/ultima_medida_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Última medición:"
+                    android:textColor="@color/azul_01"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.39"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nombre_sensor_texto" />
+
+                <ImageView
+                    android:id="@+id/ultima_medida_icono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/ultima_medida_label"
+                    app:layout_constraintTop_toBottomOf="@+id/ultima_medida_label"
+                    app:srcCompat="@drawable/ic_fecha" />
+
+                <TextView
+                    android:id="@+id/ultima_medida_texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="-"
+                    android:textColor="@color/azul_01"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ultima_medida_icono"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/ultima_medida_icono"
+                    app:layout_constraintTop_toBottomOf="@+id/ultima_medida_label" />
+
+                <TextView
+                    android:id="@+id/ultima_calidad_aire_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Última calidad de aire:"
+                    android:textColor="@color/azul_01"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.48"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ultima_medida_icono" />
+
+                <ImageView
+                    android:id="@+id/ultima_calidad_aire_icono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/ultima_calidad_aire_label"
+                    app:layout_constraintTop_toBottomOf="@+id/ultima_calidad_aire_label"
+                    app:srcCompat="@drawable/ic_calidad_aire" />
+
+                <TextView
+                    android:id="@+id/ultima_calidad_aire_texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="-"
+                    android:textColor="@color/azul_01"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ultima_calidad_aire_icono"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/ultima_calidad_aire_icono"
+                    app:layout_constraintTop_toBottomOf="@+id/ultima_calidad_aire_label" />
+
+                <TextView
+                    android:id="@+id/tiempo_emitiendo_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Tiempo emitiendo:"
+                    android:textColor="@color/azul_01"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.42"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ultima_calidad_aire_icono" />
+
+                <ImageView
+                    android:id="@+id/tiempo_emitiendo_icono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/tiempo_emitiendo_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tiempo_emitiendo_label"
+                    app:srcCompat="@drawable/ic_tiempo_emitiendo" />
+
+                <TextView
+                    android:id="@+id/tiempo_emitiendo_texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="-"
+                    android:textColor="@color/azul_01"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tiempo_emitiendo_icono"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/tiempo_emitiendo_icono"
+                    app:layout_constraintTop_toBottomOf="@+id/tiempo_emitiendo_label" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

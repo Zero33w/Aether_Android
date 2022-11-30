@@ -1,40 +1,30 @@
 package com.example.aether_app;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class RegistrarActivity extends AppCompatActivity {
 
     EditText usuario, contrasenya, correo, confirmContra;
     Button botonRegistro;
+    CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
         usuario=findViewById(R.id.nombre);
-        contrasenya=findViewById(R.id.contra);
+        contrasenya=findViewById(R.id.introducirCorreo);
         correo=findViewById(R.id.correo);
-        confirmContra=findViewById(R.id.confirmContra);
+        confirmContra=findViewById(R.id.idSensor);
+        checkBox=findViewById(R.id.terminos_condiciones_boton);
     }
     /**
      * registro Registra al usuario.
@@ -45,13 +35,14 @@ public class RegistrarActivity extends AppCompatActivity {
     public void registro() {
         String email = this.correo.getText().toString();
         String password = this.contrasenya.getText().toString();
-        if (validateData(email, password, this.confirmContra.getText().toString())) {
-            LogicaFake.registrarUsuario("https://jmarzoz.upv.edu.es/src/ServidorLogica/registroUsuariosAPP.php",
+        if (validateData(email, password, this.confirmContra.getText().toString())&&checkBox.isChecked()) {
+            LogicaFake.registrarUsuario("https://jmarzoz.upv.edu.es/src/ServidorLogica/enviarCorreoRegistro.php",
                     usuario.getText().toString(),correo.getText().toString(),confirmContra.getText().toString());
-            Toast.makeText(getApplicationContext(), "REGISTRADO CON ÉXITO", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Te hemos mandado un correo de verificacion", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(getApplicationContext(), "ERROR AL REGISTRARSE", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Debes aceptar los términos y condiciones", Toast.LENGTH_SHORT).show();
+            this.checkBox.setError("Debes aceptar los términos y condiciones");
         }
     }
     /**

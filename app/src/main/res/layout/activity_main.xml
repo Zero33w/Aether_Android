@@ -94,6 +94,7 @@
         android:layout_height="wrap_content"
         android:background="@color/transparente"
         android:fontFamily="@font/montserrat"
+        android:onClick="botonMandarCambio"
         android:padding="2dp"
         android:text="Has olvidado tu contraseña?"
         android:textAllCaps="false"
