@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:background="@color/transparente"
         android:fontFamily="@font/montserrat"
+        android:onClick="botonTerminos"
         android:padding="2dp"
         android:text="Términos y condiciones de uso"
         android:textAllCaps="false"

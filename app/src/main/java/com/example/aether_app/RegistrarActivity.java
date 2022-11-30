@@ -2,6 +2,7 @@ package com.example.aether_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -78,5 +79,10 @@ public class RegistrarActivity extends AppCompatActivity {
             this.confirmContra.setError("Las contraseñas no coinciden");
             return false;
         }
+    }
+    public void botonTerminos(View v) {
+        Intent intent = new Intent(getApplicationContext(), TerminosActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
