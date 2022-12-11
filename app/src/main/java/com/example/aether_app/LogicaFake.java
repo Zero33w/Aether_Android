@@ -79,6 +79,14 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
         }
+    /**
+     * obtenerPorcentaje extrae de BBDD el porcentaje dependiendo de lso datos obtenidos.
+     * URL:String, idSensor:String->ontenerPorcentaje()
+     *
+     * @param URL la URL del servidor.
+     * @param idSensor El nombre de la id del sensor.
+     *  No devuelve ningun valor.
+     */
     public static void obtenerPorcentaje(String URL, String idSensor){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
         // ojo: creo que hay que crear uno nuevo cada vez
@@ -103,7 +111,15 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
-
+    /**
+     * editarNobre edita los datos de la BBDD.
+     * URL:String, nombreNuevo:String, contrasenya:String->editarNombre()
+     *
+     * @param URL la URL del servidor.
+     * @param nombreNuevo El nombre introducido por el usuario.
+     * @param contrasenya La contraseña introducida por el usuario.
+     *  No devuelve ningun valor.
+     */
     public static void editarNombre(String URL, String nombreNuevo, String contrasenya){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
@@ -121,7 +137,16 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
-
+    /**
+     * cambiarContrasenya edita la contraseña de la BBDD.
+     * URL:String, correo:String, contrasenya:String, nuevaContrasenya:String->cambiarContrasenya()
+     *
+     * @param URL la URL del servidor.
+     * @param correo El correo introducido por el usuario.
+     * @param contrasenya La contraseña antigua del usuario.
+     * @param nuevaContrasenya La contraseña nueva introducida por el usuario.
+     *  No devuelve ningun valor.
+     */
     public static void cambiarContrasenya(String URL, String correo, String nuevaContrasenya, String contrasenya){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
@@ -138,7 +163,7 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
-
+/*
     public static void cambiarAvatar(String URL, String Avatar){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
@@ -156,6 +181,15 @@ public class LogicaFake extends AppCompatActivity {
                 });
     }
 
+ */
+    /**
+     * obtenerDatosUsuario obtiene los datos del usuario.
+     * URL:String, correo:String, contrasenya:String->obtenerDatosUsuario()
+     *
+     * @param URL la URL del servidor.
+     * @param correo El correo introducido por el usuario.
+     *  No devuelve ningun valor.
+     */
     public static void obtenerDatosUsuario(String URL, String correo){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
         // ojo: creo que hay que crear uno nuevo cada vez
@@ -179,7 +213,15 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
-
+    /**
+     * enviarSensor obtiene el avatar del usuario.
+     * URL:String, correo:String, contrasenya:String->enviarSensor()
+     *
+     * @param URL la URL del servidor.
+     * @param correo El correo introducido por el usuario.
+     * @param idSensor El id del sensor.
+     *  No devuelve ningun valor.
+     */
     //hacer una peticion post que recibe una url un correo y una idSensor
     public static void enviarSensor(String URL, String correo, String idSensor){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
