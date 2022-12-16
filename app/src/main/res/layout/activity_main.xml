@@ -8,28 +8,26 @@
 
     <ImageView
         android:id="@+id/logo_login_imagen"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="363dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inicio_sesion_titulo"
         app:srcCompat="@drawable/logo_aether_technologies" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:backgroundTint="@color/azul_01"
         android:id="@+id/correo_login_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/azul_01"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_login_imagen"
-        app:hintEnabled="false"
         app:startIconDrawable="@drawable/ic_correo_input"
         app:startIconTint="@color/azul_01">
 
@@ -41,32 +39,32 @@
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="Correo"
-            android:textColorHint="@color/azul_01_hint"
             android:inputType="textEmailAddress"
             android:paddingStart="5dp"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:shadowColor="@color/azul_01"
             android:textColor="@color/azul_01"
-            android:textSize="18sp" />
+            android:textColorHint="@color/azul_01_hint"
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:backgroundTint="@color/azul_01"
         android:id="@+id/contrasenya_login_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/azul_01"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correo_login_input"
+        app:passwordToggleDrawable="@drawable/mostrar_contrasenya_selector"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/azul_01"
-        app:passwordToggleDrawable="@drawable/mostrar_contrasenya_selector"
-        app:hintEnabled="false"
         app:startIconDrawable="@drawable/ic_contrasenya_input"
         app:startIconTint="@color/azul_01">
 
@@ -78,14 +76,14 @@
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="Contraseña"
-            android:textColorHint="@color/azul_01_hint"
             android:inputType="textPassword"
             android:paddingStart="5dp"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:shadowColor="@color/azul_01"
             android:textColor="@color/azul_01"
-            android:textSize="18sp" />
+            android:textColorHint="@color/azul_01_hint"
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -125,7 +123,7 @@
         android:id="@+id/botonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/azul_03"
         android:fontFamily="@font/montserrat"
         android:paddingStart="35dp"
@@ -134,19 +132,19 @@
         android:paddingBottom="18dp"
         android:text="Iniciar Sesión"
         android:textAllCaps="false"
-        android:textSize="16dp"
+        android:textSize="14dp"
         app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contrasenya_olvidada_boton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.050000012" />
 
     <TextView
         android:id="@+id/registro_texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat"
         android:text="No tienes una cuenta?"
         android:textColor="@color/azul_01"
@@ -155,5 +153,24 @@
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonLogin" />
+
+    <TextView
+        android:id="@+id/inicio_sesion_titulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bck_titulos"
+        android:fontFamily="@font/montserrat"
+        android:paddingStart="15dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="INICIAR SESIÓN"
+        android:textColor="@color/blanco_01"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

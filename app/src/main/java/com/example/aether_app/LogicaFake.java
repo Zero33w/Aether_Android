@@ -1,10 +1,15 @@
 package com.example.aether_app;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -15,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aether_app.ui.gallery.GalleryFragment;
 import com.example.aether_app.ui.home.HomeFragment;
+import com.example.aether_app.ui.slideshow.SlideshowFragment;
 import com.google.gson.Gson;
 
 import java.util.Date;
@@ -78,7 +84,7 @@ public class LogicaFake extends AppCompatActivity {
                         Log.d ("clienterestandroid" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
                     }
                 });
-        }
+    }
     public static void obtenerPorcentaje(String URL, String idSensor){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
         // ojo: creo que hay que crear uno nuevo cada vez
@@ -122,7 +128,7 @@ public class LogicaFake extends AppCompatActivity {
                 });
     }
 
-    public static void cambiarContrasenya(String URL, String correo, String nuevaContrasenya, String contrasenya){
+    public static void cambiarContrasenya(String URL, String correo){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
         // ojo: creo que hay que crear uno nuevo cada vez
@@ -130,7 +136,7 @@ public class LogicaFake extends AppCompatActivity {
 
         elPeticionario.hacerPeticionREST("POST", URL,
                 //"{\"Valor\": \"8888\", \"TipoMedida\": \"PruebaMovil\", \"Fecha\": \" " + fechaHoy.getTime() + " \" , \"Latitud\": \"1231\" , \"Longitud\": \"1231\"}",
-                "correo="+correo+"&contrasenya="+contrasenya+"&nuevaContrasenya="+nuevaContrasenya,
+                "correo="+correo,
                 new PeticionarioREST.RespuestaREST () {
                     @Override
                     public void callback(int codigo, String cuerpo) {
@@ -197,4 +203,69 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
+
+    public static void confirmarSensorVinculado(String URL, String usuario ){
+        Log.d("clienterestandroid", "boton_enviar_pulsado");
+        // ojo: creo que hay que crear uno nuevo cada vez
+        PeticionarioREST elPeticionario = new PeticionarioREST();
+
+        elPeticionario.hacerPeticionREST("GET", URL+"?correo="+usuario,
+                null,
+                new PeticionarioREST.RespuestaREST () {
+                    @Override
+                    public void callback(int codigo, String cuerpo) {
+                        Log.d ("prueba-get-porcentaje" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
+
+                        if (Integer.parseInt(cuerpo)==1){
+                            SlideshowFragment.getInstance().binding.sinSensor.setVisibility(View.INVISIBLE);
+                            SlideshowFragment.getInstance().binding.conSensor.setVisibility(View.VISIBLE);
+                        }
+                        else{
+                            SlideshowFragment.getInstance().binding.sinSensor.setVisibility(View.VISIBLE);
+                            SlideshowFragment.getInstance().binding.conSensor.setVisibility(View.INVISIBLE);
+                        }
+
+                    }
+                });
+    }
+
+    public static void estadoNodo(String URL ){
+        Log.d("clienterestandroid", "boton_enviar_pulsado");
+        // ojo: creo que hay que crear uno nuevo cada vez
+        PeticionarioREST elPeticionario = new PeticionarioREST();
+
+        elPeticionario.hacerPeticionREST("GET", URL+"?datos="+"u",
+                null,
+                new PeticionarioREST.RespuestaREST () {
+                    @Override
+                    public void callback(int codigo, String cuerpo) {
+                        Log.d ("prueba-get-porcentaje" ,"codigo respuesta: " + codigo + " <-> \n" + cuerpo);
+
+                        //Conversión JSON a Objeto usuario
+                        Medida medida = new Medida();
+                        Gson gson = new Gson();
+
+                        //quitar corchetes del array
+                        cuerpo  = cuerpo.replace("[","");
+                        cuerpo = cuerpo.replace("]","");
+
+                        medida = gson.fromJson(cuerpo,Medida.class);
+
+                        long momentoUltimaMedida = medida.getMomentoMedicion();
+
+                        Log.d("prueba", String.valueOf(momentoUltimaMedida));
+
+                        long ultimoEnvio;
+                        ultimoEnvio=System.currentTimeMillis();
+                        if (ultimoEnvio-momentoUltimaMedida<60000 ){
+
+                            SlideshowFragment.getInstance().binding.conectadoIcono.getBackground().setTint(Color.rgb(31, 176, 77));
+                        }
+                        else {
+                            SlideshowFragment.getInstance().binding.conectadoIcono.getBackground().setTint(Color.rgb(185, 45, 45));
+                        }
+                    }
+                });
+    }
+
 }

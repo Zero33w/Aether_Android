@@ -281,7 +281,7 @@ public class UsuarioActivity extends AppCompatActivity
     /**
      * botonDetenerServicioPulsado simplemente arranca el servicio cuando se pulsa un boton. View v->botonDetenerServicioPulsado()
      *
-     * @param v llamar al onclick.
+     * @param v llamar al onclick-
      *
      * No devuelve ningún valor.
      */
@@ -313,6 +313,7 @@ public class UsuarioActivity extends AppCompatActivity
         notificacion = new NotificationCompat.Builder(UsuarioActivity.this, CANAL_ID);
 
         long instanteActual=System.currentTimeMillis();
+
 
         lat=findViewById(R.id.latitud);
         leng=findViewById(R.id.longitud);
@@ -572,7 +573,7 @@ public class UsuarioActivity extends AppCompatActivity
         TramaIBeacon tib = new TramaIBeacon(bytes);
 
 
-        if(Utilidades.bytesToString(tib.getUUID()).equals(UUIDSensor)){
+        if(Utilidades.bytesToString(tib.getUUID()).equals("AHETERTECH_GRUP3")){
             Log.d(ETIQUETA_LOG, " ****************************************************");
             Log.d(ETIQUETA_LOG, " ****** DISPOSITIVO DETECTADO BTLE ****************** ");
             Log.d(ETIQUETA_LOG, " ****************************************************");
@@ -593,6 +594,10 @@ public class UsuarioActivity extends AppCompatActivity
                     String.valueOf(Utilidades.bytesToInt(tib.getMinor())),"https://jmarzoz.upv.edu.es/src/ServidorLogica/gestionMediciones.php",
                     Utilidades.bytesToString(tib.getUUID()));
             this.ultimoEnvio=System.currentTimeMillis();
+            if (Utilidades.bytesToInt(tib.getMinor())<60){
+                enviarNotificacionDatosPeligrosos();
+            }
+            LogicaFake.estadoNodo("https://jmarzoz.upv.edu.es/src/ServidorLogica/gestionMediciones.php");
 
             textoBluetooth.setText("Nombre: "+Utilidades.bytesToString(tib.getUUID())+"Major: " + Utilidades.bytesToInt(tib.getMajor()) + ", Minor: " + Utilidades.bytesToInt(tib.getMinor()));
             //------------------------------------------------
@@ -614,6 +619,10 @@ public class UsuarioActivity extends AppCompatActivity
                     + Utilidades.bytesToInt(tib.getMinor()) + " ) ");
             Log.d(ETIQUETA_LOG, " txPower  = " + Integer.toHexString(tib.getTxPower()) + " ( " + tib.getTxPower() + " )");
             Log.d(ETIQUETA_LOG, " ****************************************************");
+        }
+        sensorLongitud=findViewById()
+        if (rssi>-80){
+
         }
 
 
@@ -645,7 +654,23 @@ public class UsuarioActivity extends AppCompatActivity
 
 
     }
+    public void enviarNotificacionDatosPeligrosos(){
+        notificacion.setSmallIcon(R.mipmap.ic_launcher);
+        notificacion.setContentTitle("Aether");
+        notificacion.setContentText("TU SENSOR DETECTA UNA MEDIDA PELIGROSA");
 
+        notificationManager = (NotificationManager)
+                getSystemService(NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(
+                    CANAL_ID, "Mis Notificaciones",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setDescription("Descripcion del canal");
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
+        notificationManager.notify(NOTIFICACION_ID, notificacion.build());
+    }
     public void botonIrId(View view) {
         Intent intent = new Intent(this, VincularActivity.class);
         startActivity(intent);

@@ -3,9 +3,11 @@ package com.example.aether_app;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -36,9 +38,11 @@ public class MenuActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMenu.toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
+        navigationView.setItemIconTintList(null);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -61,8 +65,9 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+        /*getMenuInflater().inflate(R.menu.menu, menu);
+        return true;*/
+        return false;
     }
 
     @Override
@@ -77,11 +82,20 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void modificarContrasenya(View view) {
-        Intent intent = new Intent(getApplicationContext(), cambiarContraActivity.class);
-        startActivity(intent);
+        SharedPreferences preferences = getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+        String correo = preferences.getString("usuario","");
+        LogicaFake.cambiarContrasenya("https://jmarzoz.upv.edu.es/src/ServidorLogica/enviarCorreoCambioContrasenya.php",
+                correo);
+        Toast.makeText(getApplicationContext(), "Se ha eviado un correo para el cambio", Toast.LENGTH_SHORT).show();
+
     }
     public void irALayautDeMierda(View view) {
         Intent intent = new Intent(getApplicationContext(), UsuarioActivity.class);
         startActivity(intent);
+    }
+
+    public void dirigirInformacionGasesWeb(View view){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://jmarzoz.upv.edu.es/src/ux/bienvenida.php"));
+        startActivity(browserIntent);
     }
 }

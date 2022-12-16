@@ -4,7 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blanco_01"
     tools:context=".editarNombreActivity">
+
+    <TextView
+        android:id="@+id/correo_usuario_texto6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Introduce el nuevo nombre para cambiar el anterior."
+        android:textAlignment="center"
+        android:textColor="@color/azul_01"
+
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registro_titulo3" />
+
+    <TextView
+        android:id="@+id/registro_titulo3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bck_titulos"
+        android:fontFamily="@font/montserrat"
+        android:paddingStart="15dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="EDITAR NOMBRE"
+        android:textColor="@color/blanco_01"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/confirmar_contrasenya_registro_input"
@@ -14,6 +51,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/azul_01"
+        android:visibility="gone"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,14 +82,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/azul_01"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/correo_registro_input"
-        app:startIconDrawable="@drawable/ic_contrasenya_input"
+        app:layout_constraintTop_toBottomOf="@+id/correo_usuario_texto6"
+        app:startIconDrawable="@drawable/ic_nombre_input"
         app:startIconTint="@color/azul_01">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -76,20 +114,21 @@
         android:id="@+id/botonCambiarNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/azul_03"
         android:fontFamily="@font/montserrat"
         android:onClick="botonCambiarNombre"
-        android:paddingStart="35dp"
+        android:paddingStart="50dp"
         android:paddingTop="18dp"
-        android:paddingEnd="35dp"
+        android:paddingEnd="50dp"
         android:paddingBottom="18dp"
-        android:text="Cambiar nombre"
+        android:text="Editar "
         android:textAllCaps="false"
-        android:textSize="16dp"
+        android:textSize="14dp"
         app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmar_contrasenya_registro_input"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.060000002" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,12 +7,13 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_estado"
+            android:icon="@drawable/ic_estado_menu"
             app:showAsAction="ifRoom"
-            android:title="Inicio" />
+            android:title="Mi estado" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_usuario_menu"
+            android:iconTintMode="src_over"
             android:title="Mi perfil" />
         <item
             android:id="@+id/nav_slideshow"
@@ -22,8 +23,8 @@
             android:id="@+id/nav_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_app"
-            android:title="Co2 Informacion"
+            android:icon="@drawable/ic_acerca_app_menu"
+            android:title="Acerca de la App"
             android:iconTint="@color/blanco_01"/>
     </group>
 

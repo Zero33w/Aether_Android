@@ -38,14 +38,11 @@
                             android:id="@+id/acerca_de_titulo"
                             android:layout_width="347dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="32dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="32dp"
-                            android:layout_marginBottom="8dp"
-                            android:fontFamily="@font/montserrat"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/montserrat_semibold"
                             android:paddingTop="5dp"
                             android:paddingBottom="5dp"
-                            android:text="INFORMACION DE LOS GASES"
+                            android:text="ACERCA DE LA APP"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/azul_01"
@@ -62,7 +59,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="12dp"
                     android:background="@drawable/bck_containers"
                     android:elevation="5dp"
@@ -382,6 +378,91 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/icono_acerca_dispositivo" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/list_06"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/bck_containers"
+                    android:elevation="5dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/titulo_05"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginEnd="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="INFORMACIÓN DE GASES"
+                            android:textAlignment="center"
+                            android:textColor="@color/azul_01"
+                            android:textSize="22dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/icono_info_gases"
+                            android:layout_width="387dp"
+                            android:layout_height="180dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginEnd="32dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/titulo_05"
+                            app:srcCompat="@drawable/ic_gases_peligrosos" />
+
+                        <TextView
+                            android:id="@+id/texto_7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginEnd="24dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Existen diferentes gases peligrosos que pueden perjudicar tu salud, pulsa el botón de abajo para tener más información."
+                            android:textAlignment="center"
+                            android:textColor="@color/azul_01"
+                            android:textSize="14dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/icono_info_gases" />
+
+                        <Button
+                            android:id="@+id/vincular_dispositivo_boton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:backgroundTint="@color/azul_03"
+                            android:fontFamily="@font/montserrat"
+                            android:onClick="dirigirInformacionGasesWeb"
+                            android:paddingStart="10dp"
+                            android:paddingTop="18dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="18dp"
+                            android:text="Mas Información"
+                            android:textAllCaps="false"
+                            android:textSize="14dp"
+                            app:cornerRadius="40dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/texto_7" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>

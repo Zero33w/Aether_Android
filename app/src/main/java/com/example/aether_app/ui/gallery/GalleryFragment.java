@@ -28,7 +28,7 @@ public class GalleryFragment extends Fragment {
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-//Llamada a obtener Datos del Usuario
+        //Llamada a obtener Datos del Usuario
         SharedPreferences preferences =  this.getActivity().getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
         LogicaFake.obtenerDatosUsuario("https://jmarzoz.upv.edu.es/src/ServidorLogica/datosUsuario.php", preferences.getString("usuario",""));
         //final TextView textView = binding.textGallery;

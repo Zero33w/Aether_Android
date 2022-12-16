@@ -2,29 +2,43 @@ package com.example.aether_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 public class cambiarContraActivity extends AppCompatActivity {
 
-    EditText nuevaContra, correo, contra;
+    EditText nuevaContra, antiguaContra, nuevaContraConfirmar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        contra=findViewById(R.id.introducirCorreo);
+
+
         nuevaContra=findViewById(R.id.idSensor);
-        correo=findViewById(R.id.correo);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cambiar_contra);
     }
 
     private void cambiarContra() {
-        contra=findViewById(R.id.introducirCorreo);
+
+        //Obtener el correo
+        SharedPreferences preferences = getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+        String correo = preferences.getString("usuario","");
+
         nuevaContra=findViewById(R.id.idSensor);
-        correo=findViewById(R.id.correo);
+        //nuevaContraConfirmar=findViewById(R.id.nuevaContrasenyaRepetida);
+        antiguaContra=findViewById(R.id.introducirCorreo);
+
+        if(comprobarNuevaContrasenya(nuevaContra.getText().toString(), nuevaContraConfirmar.getText().toString()))
+        {
             LogicaFake.cambiarContrasenya("https://jmarzoz.upv.edu.es/src/ServidorLogica/cambiarContrasenya.php",
-                    correo.getText().toString(),nuevaContra.getText().toString(),contra.getText().toString());
+                    correo);
+        }
+        else{
+            this.nuevaContraConfirmar.setError("Las contraseñas no coinciden");
+        }
 
     }
     //crear funcion para un boton
@@ -32,7 +46,14 @@ public class cambiarContraActivity extends AppCompatActivity {
         cambiarContra();
     }
 
+    private boolean comprobarNuevaContrasenya(String password, String confirmPassword){
+        if(password.equals(confirmPassword)){
+            return true;
+        }
+        else {
+            return false;
 
-
+        }
+    }
 
 }
