@@ -99,6 +99,7 @@ public class LogicaFake extends AppCompatActivity {
                         try{
                             HomeFragment.getInstance().binding.calidadAireValorText.setText(cuerpo);
                             HomeFragment.getInstance().binding.progressBar.setProgress(Math.round(Float.parseFloat(cuerpo)));
+
                         }catch (Exception e){
                             Log.d("prueba-get-porcentaje", "Error al actualizar el porcentaje");
                             HomeFragment.getInstance().binding.calidadAireValorText.setText("Nada");

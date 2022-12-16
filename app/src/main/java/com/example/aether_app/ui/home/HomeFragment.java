@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
         Log.d("CMEADOR",binding.calidadAireValorText.getText().toString());
 
-        LogicaFake.obtenerPorcentaje("https://jmarzoz.upv.edu.es/src/ServidorLogica/obtenerMediaAire.php","XEVI-GTI-PROY-3A");
+        LogicaFake.obtenerPorcentaje("https://jmarzoz.upv.edu.es/src/ServidorLogica/obtenerMediaAire.php","AHETERTECH_GRUP3");
 
         //Grafica
         graficaLineas = binding.grafica;

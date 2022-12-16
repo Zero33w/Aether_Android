@@ -19,9 +19,12 @@ public class OlvidarContraActivity extends AppCompatActivity {
         correo = findViewById(R.id.recuperar_contrasenya);
     }
 
-    public void botonOlvidarContra(View view){
-        LogicaFake.cambiarContrasenya("https://jmarzoz.upv.edu.es/src/ServidorLogica/enviarCorreoCambioContrasenya.php",
+    private void enviarCorreoRecupararContra(){
+        LogicaFake.cambiarContrasenya("https://jmarzoz.upv.edu.es/src/ServidorLogica/enviarCorreoRecuperarAPP.php",
                 correo.getText().toString());
         Toast.makeText(getApplicationContext(), "Se ha eviado un correo para el cambio", Toast.LENGTH_SHORT).show();
+    }
+    public void botonOlvidarContra(View v){
+       enviarCorreoRecupararContra();
     }
 }
