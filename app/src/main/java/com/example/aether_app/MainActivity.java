@@ -129,6 +129,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    /**
+     * botonMandarCambio Al pulsar el botón manda cambiar nombre.
+     * View v->botonMandarRegistro()
+     * @param v llamar al onclick.
+     *
+     * No devuelve ningún valor.
+     */
     public void botonMandarCambio(View v) {
         Intent intent=new Intent(getApplicationContext(),OlvidarContraActivity.class);
         startActivity(intent);

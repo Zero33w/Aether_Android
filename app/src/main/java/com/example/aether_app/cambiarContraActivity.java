@@ -20,7 +20,12 @@ public class cambiarContraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cambiar_contra);
     }
-
+    /**
+     * cambiarContra llama a la función de la lógica del negocio.
+     * cambiarContra()
+     *
+     *  No devuelve ningun valor.
+     */
     private void cambiarContra() {
 
         //Obtener el correo
@@ -41,7 +46,13 @@ public class cambiarContraActivity extends AppCompatActivity {
         }
 
     }
-    //crear funcion para un boton
+    /**
+     * botonCambiarContra Al pulsar el botón para cambiar la contraseña.
+     * View v->botonCambiarContra()
+     * @param v llamar al onclick.
+     *
+     * No devuelve ningún valor.
+     */
     public void botonCambiarContra(View v) {
         cambiarContra();
     }

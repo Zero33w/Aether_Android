@@ -53,6 +53,13 @@ public class MenuActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
+    /**
+     * botonLogout Al pulsar el botón cierre sesión.
+     * View v->botonMandarRegistro()
+     * @param view llamar al onclick.
+     *
+     * No devuelve ningún valor.
+     */
     public void botonLogout(View view){
         SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
         preferences.edit().clear().commit();
@@ -76,11 +83,24 @@ public class MenuActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    //funcion que haga que un boton vaya a otra pantalla
+    /**
+     * modificarNombre Al pulsar el botón modifica el nombre.
+     * View v->modificarNombre()
+     * @param view llamar al onclick.
+     *
+     * No devuelve ningún valor.
+     */
     public void modificarNombre(View view) {
         Intent intent = new Intent(getApplicationContext(), editarNombreActivity.class);
         startActivity(intent);
     }
+    /**
+     * modificarContrasenya Al pulsar el botón cambia la contraseña.
+     * View v->modificarContraseña()
+     * @param view llamar al onclick.
+     *
+     * No devuelve ningún valor.
+     */
     public void modificarContrasenya(View view) {
         SharedPreferences preferences = getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
         String correo = preferences.getString("usuario","");
@@ -89,6 +109,13 @@ public class MenuActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Se ha eviado un correo para el cambio", Toast.LENGTH_SHORT).show();
 
     }
+    /**
+     * irALayoutDeMierda Al pulsar el botón cambia de layout.
+     * View v->irALayoutDeMierda()
+     * @param view llamar al onclick.
+     *
+     * No devuelve ningún valor.
+     */
     public void irALayautDeMierda(View view) {
         Intent intent = new Intent(getApplicationContext(), UsuarioActivity.class);
         startActivity(intent);

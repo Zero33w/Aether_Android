@@ -19,6 +19,12 @@ public class editarNombreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_nombre);
     }
+    /**
+     * cambiarNombre llama a la función de la lógica del negocia.
+     * cambiarNombre()
+     *
+     *  No devuelve ningun valor.
+     */
     private void cambiarNombre() {
         SharedPreferences preferences = getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
 
@@ -27,7 +33,13 @@ public class editarNombreActivity extends AppCompatActivity {
                 nuevoNombre.getText().toString(), preferences.getString("usuario",""));
 
     }
-    //crear funcion para un boton
+    /**
+     * botonCambiarNombre Al pulsar el botón para cambiar la contraseña.
+     * View v->botonCambiarNombre()
+     * @param v llamar al onclick.
+     *
+     * No devuelve ningún valor.
+     */
     public void botonCambiarNombre(View v) {
         cambiarNombre();
     }
