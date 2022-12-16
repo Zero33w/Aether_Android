@@ -62,7 +62,7 @@ public class UsuarioActivity extends AppCompatActivity
     private final long INTERVALOMEDICION=20000;
     static final String CANAL_ID = "mi_canal";
     static final int NOTIFICACION_ID = 1;
-    private TextView lat,leng;
+    private TextView lat,leng,sensor;
     private LocationManager locManager;
     private Location loc;
     Button botonLogout;
@@ -620,11 +620,12 @@ public class UsuarioActivity extends AppCompatActivity
             Log.d(ETIQUETA_LOG, " txPower  = " + Integer.toHexString(tib.getTxPower()) + " ( " + tib.getTxPower() + " )");
             Log.d(ETIQUETA_LOG, " ****************************************************");
         }
-        sensorLongitud=findViewById()
-        if (rssi>-80){
-
+        sensor=findViewById(R.id.sensor);
+        if (rssi>-75){
+            sensor.setText("Esta cerca");
+        }else if(rssi<-95) {
+            sensor.setText("Esta lejos");
         }
-
 
     } // ()
 
