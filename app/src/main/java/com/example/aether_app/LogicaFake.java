@@ -85,6 +85,14 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
+    /**
+     * obtenerPorcentaje devuelve el porcentaje solicitado.
+     * URL:String, idSensor:String->obtenerPorcentaje()
+     *
+     * @param URL la URL del servidor.
+     * @param idSensor la id del sensor para obtener los datos.
+     *  No devuelve ningun valor.
+     */
     public static void obtenerPorcentaje(String URL, String idSensor){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
         // ojo: creo que hay que crear uno nuevo cada vez
@@ -110,7 +118,15 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
-
+    /**
+     * editarNombre edita el nombre del usuario.
+     * URL:String, nombreNuevo:String, contrasenya:String->editarNombre()
+     *
+     * @param URL la URL del servidor.
+     * @param nombreNuevo nombre nuevo introdicido por el usuario.
+     * @param contrasenya para seguridad.
+     *  No devuelve ningun valor.
+     */
     public static void editarNombre(String URL, String nombreNuevo, String contrasenya){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
@@ -128,7 +144,14 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
-
+    /**
+     * cambiarContrasenya edita la contraseña del usuario.
+     * URL:String, correo:String->cambiarContrasenya()
+     *
+     * @param URL la URL del servidor.
+     * @param correo correo del usuario.
+     *  No devuelve ningun valor.
+     */
     public static void cambiarContrasenya(String URL, String correo){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
@@ -145,7 +168,7 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
-
+    /*
     public static void cambiarAvatar(String URL, String Avatar){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
@@ -162,7 +185,16 @@ public class LogicaFake extends AppCompatActivity {
                     }
                 });
     }
+     */
 
+    /**
+     * obtenerDatosUsuario para la página del perfil del usuario.
+     * URL:String, correo:String->obtenerDatosUsuario()
+     *
+     * @param URL la URL del servidor.
+     * @param correo correo del usuario.
+     *  No devuelve ningun valor.
+     */
     public static void obtenerDatosUsuario(String URL, String correo){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
         // ojo: creo que hay que crear uno nuevo cada vez
@@ -187,7 +219,15 @@ public class LogicaFake extends AppCompatActivity {
                 });
     }
 
-    //hacer una peticion post que recibe una url un correo y una idSensor
+    /**
+     * enviarSensor muestra los sensores que tiene cada usuario.
+     * URL:String, correo:String, idSensor:String->enviarSensor()
+     *
+     * @param URL la URL del servidor.
+     * @param correo correo del usuario.
+     * @param idSensor id del sensor.
+     *  No devuelve ningun valor.
+     */
     public static void enviarSensor(String URL, String correo, String idSensor){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
@@ -205,6 +245,14 @@ public class LogicaFake extends AppCompatActivity {
                 });
     }
 
+    /**
+     * confirmarSensorVinculado saber si el usuario tiene el sensor vinculado.
+     * URL:String, usuario:String->confirmarSensorVinculado()
+     *
+     * @param URL la URL del servidor.
+     * @param usuario es el nombre del usuario.
+     *  No devuelve ningun valor.
+     */
     public static void confirmarSensorVinculado(String URL, String usuario ){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
         // ojo: creo que hay que crear uno nuevo cada vez
@@ -230,6 +278,13 @@ public class LogicaFake extends AppCompatActivity {
                 });
     }
 
+    /**
+     * estadoNodo saber el estado del nodo.
+     * URL:String->estadoNodo()
+     *
+     * @param URL la URL del servidor.
+     *  No devuelve ningun valor.
+     */
     public static void estadoNodo(String URL ){
         Log.d("clienterestandroid", "boton_enviar_pulsado");
         // ojo: creo que hay que crear uno nuevo cada vez
