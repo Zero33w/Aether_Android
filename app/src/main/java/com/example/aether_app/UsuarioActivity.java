@@ -677,4 +677,16 @@ public class UsuarioActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    public void botonMandarDatos1(View view) {
+        LogicaFake.GuardarMedidaEnBD(String.valueOf("1"
+        ), "1", "https://jmarzoz.upv.edu.es/src/ServidorLogica/gestionMediciones.php", "SENSOR1");
+    }
+    public void botonMandarDatos2(View view) {
+        LogicaFake.GuardarMedidaEnBD(String.valueOf("2"
+        ), "2", "https://jmarzoz.upv.edu.es/src/ServidorLogica/gestionMediciones.php", "SENSOR2");
+    }
+    public void botonMandarDatos3(View view) {
+        LogicaFake.GuardarMedidaEnBD(String.valueOf("3"
+        ), "3", "https://jmarzoz.upv.edu.es/src/ServidorLogica/gestionMediciones.php", "SENSOR3");
+    }
 }

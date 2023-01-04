@@ -119,7 +119,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_light"
-                                android:text="%"
+                                android:text="ppm"
                                 android:textColor="@color/azul_01"
                                 android:textSize="40dp"
                                 app:layout_constraintBottom_toBottomOf="@+id/progressBar"

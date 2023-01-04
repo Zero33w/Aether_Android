@@ -67,4 +67,25 @@
         android:onClick="botonIrId"
         android:text="Introducir id" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="botonMandarDatos1"
+        android:text="EnviarDatos1" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="botonMandarDatos2"
+        android:text="enviardatos2" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="botonMandarDatos3"
+        android:text="enviardatos3" />
+
 </android.widget.LinearLayout>
