@@ -672,6 +672,24 @@ public class UsuarioActivity extends AppCompatActivity
 
         notificationManager.notify(NOTIFICACION_ID, notificacion.build());
     }
+
+    public void enviarNotificacionFalloDatos(){
+        notificacion.setSmallIcon(R.mipmap.ic_launcher);
+        notificacion.setContentTitle("Aether");
+        notificacion.setContentText("TU SENSOR DETECTA DATOS ERRONEOS");
+
+        notificationManager = (NotificationManager)
+                getSystemService(NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(
+                    CANAL_ID, "Mis Notificaciones",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setDescription("Descripcion del canal");
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
+        notificationManager.notify(NOTIFICACION_ID, notificacion.build());
+    }
     public void botonIrId(View view) {
         Intent intent = new Intent(this, VincularActivity.class);
         startActivity(intent);
