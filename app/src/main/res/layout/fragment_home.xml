@@ -102,32 +102,46 @@
                                 app:layout_constraintVertical_bias="0.26999998" />
 
                             <TextView
+                                android:id="@+id/calidad_aire_valor_text2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_light"
+                                android:text="Bueno"
+                                android:textColor="@color/azul_01"
+                                android:textSize="45dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                                app:layout_constraintEnd_toEndOf="@+id/progressBar"
+                                app:layout_constraintStart_toStartOf="@+id/progressBar"
+                                app:layout_constraintTop_toTopOf="@+id/progressBar"
+                                app:layout_constraintVertical_bias="0.53999996" />
+
+                            <TextView
+                                android:id="@+id/calidad_aire_valor_text3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="@font/montserrat_light"
+                                android:text="ppm"
+                                android:textColor="@color/azul_01"
+                                android:textSize="18dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/calidad_aire_valor_text"
+                                app:layout_constraintStart_toEndOf="@+id/calidad_aire_valor_text"
+                                app:layout_constraintTop_toTopOf="@+id/calidad_aire_valor_text" />
+
+                            <TextView
                                 android:id="@+id/calidad_aire_valor_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_light"
                                 android:text="-"
                                 android:textColor="@color/azul_01"
-                                android:textSize="65dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                                android:textSize="25dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="@+id/progressBar"
-                                app:layout_constraintStart_toStartOf="@+id/progressBar"
-                                app:layout_constraintTop_toTopOf="@+id/progressBar" />
-
-                            <TextView
-                                android:id="@+id/calidad_aire_valor_text3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_light"
-                                android:text="ppm"
-                                android:textColor="@color/azul_01"
-                                android:textSize="40dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
-                                app:layout_constraintEnd_toEndOf="@+id/progressBar"
-                                app:layout_constraintHorizontal_bias="0.75"
+                                app:layout_constraintHorizontal_bias="0.4"
                                 app:layout_constraintStart_toStartOf="@+id/progressBar"
                                 app:layout_constraintTop_toTopOf="@+id/progressBar"
-                                app:layout_constraintVertical_bias="0.85" />
+                                app:layout_constraintVertical_bias="0.9" />
 
                             <TextView
                                 android:id="@+id/tipo_aire_texto"
